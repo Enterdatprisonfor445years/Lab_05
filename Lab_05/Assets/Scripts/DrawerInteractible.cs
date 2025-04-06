@@ -14,6 +14,7 @@ public class DrawerInteractible : XRGrabInteractable
     [SerializeField] 
     XRSocketInteractor keySocket;
 
+    [SerializeField] GameObject keyIndicatorLight;
     [SerializeField] 
     bool isLocked;
 
@@ -51,6 +52,10 @@ public class DrawerInteractible : XRGrabInteractable
     private void OnDrawerUnlocked(SelectEnterEventArgs arg0)
     {
         isLocked = false;
+        if(keyIndicatorLight != null)
+        {
+            keyIndicatorLight.SetActive(false);
+        }
         Debug.Log("DRAWER UNLOCKED");
     }
 
